@@ -1,48 +1,58 @@
-.checkbox-container {
-	display: inline-block;
-	flex-direction: column;
-	gap: 10px;
-	margin: 20px auto;
-	padding: 10px;
-	background-color: #f9f9f9;
+
+
+.form-container {
+  background-color: var(--background-color1);
+  padding: 20px;
+  border-radius: var(--menu-border-radius);
+  box-shadow: 0 4px 8px var(--sub-color6);
+  max-width: 600px;
+  margin: auto;
+
 }
 
-.checkbox-container input[type="checkbox"] {
-	display: none;
+.form-container form {
+  display: flex;
+  flex-direction: column;
 }
 
-.checkbox-container label {
-	position: relative;
-	padding-left: 25px;
-	cursor: pointer;
-	user-select: none;
+.form-container form div {
+  margin-bottom: 15px;
 }
 
-.checkbox-container label::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 18px;
-	height: 18px;
-	border: 2px solid #007BFF;
-	border-radius: 3px;
-	background-color: #fff;
+.form-container label {
+  font-size: var(--sub-title);
+  color: var(--main-color);
+  margin-bottom: 5px;
 }
 
-.checkbox-container input[type="checkbox"]:checked+label::before {
-	background-color: #007BFF;
-	border-color: #007BFF;
+.form-container input[type="text"],
+.form-container 
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--body-text);
+  border: 1px solid var(--sub-color5);
+  border-radius: var(--menu-border-radius);
+  background-color: var(--sub-color7);
 }
 
-.checkbox-container input[type="checkbox"]:checked+label::after {
-	content: "";
-	position: absolute;
-	left: 6px;
-	top: 2px;
-	width: 6px;
-	height: 12px;
-	border: solid white;
-	border-width: 0 2px 2px 0;
-	transform: rotate(45deg);
+.form-container button[type="submit"],
+.form-container button[type="button"] {
+  padding: 10px 20px;
+  font-size: var(--body-text);
+  color: var(--background-color1);
+  background-color: var(--sub-color3);
+  border: none;
+  border-radius: var(--menu-border-radius);
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.form-container button[type="button"] {
+  background-color: var(--sub-color2);
+}
+
+.form-container button[type="submit"]:hover,
+.form-container button[type="button"]:hover {
+  background-color: var(--sub-color4);
 }
