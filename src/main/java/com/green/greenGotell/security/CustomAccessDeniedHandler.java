@@ -21,9 +21,6 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
         
         PrintWriter out = response.getWriter();
         
-        //out.println("<script>alert('접근 권한이 없습니다.'); location.href='/';</script>");
-        //out.flush();
-		
         out.println("<html>");
         out.println("<head>");
         out.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'>");

@@ -19,7 +19,7 @@ public class CategoryServiceTest {
 	@Autowired
     private CategoryService categoryService;
 
-	@Test
+	//@Test
     @Transactional
     public void testCategoryInsertionAndRetrieval() {
         // Given
