@@ -5,7 +5,15 @@ plugins {
 }
 
 group = 'com.green'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
+
+bootJar{
+	archivdFileName= "greenGotell-${version}.jar"
+	exclude '**/ssh/*'
+}
+jar{
+	enabled = false
+}
 
 java {
 	toolchain {
