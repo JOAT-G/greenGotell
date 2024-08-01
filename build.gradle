@@ -8,9 +8,10 @@ group = 'com.green'
 version = '1.0.0'
 
 bootJar{
-	archivdFileName= "greenGotell-${version}.jar"
+	archiveFileName= "greenGotell-${version}.jar"
 	exclude '**/ssh/*'
 }
+
 jar{
 	enabled = false
 }
