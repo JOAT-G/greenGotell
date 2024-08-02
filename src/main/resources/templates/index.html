@@ -21,8 +21,9 @@
 					<li class="profilePhoto"><img th:if="${#authorization.expression('isAuthenticated()')}"
 							th:src="${ProfilePhoto.profileImage != null ? 'data:image/jpeg;base64,' + ProfilePhoto.profileImage : 'https://i.pinimg.com/564x/a5/e8/4d/a5e84dd8104ba6287b72e16401d173d7.jpg'}"
 							alt="프로필 사진"></li>
-					<li class="subfont" th:text="${#authentication.principal.department.getKoName()}"></li>
-					<li sec:authentication="principal.name"></li>
+					
+					<li class="subfont" th:if="${#authorization.expression('isAuthenticated()')}" th:text="${#authentication.principal.department.getKoName()}"></li>
+					<li sec:authorize="isAuthenticated()" sec:authentication="principal.name"></li>
 				</ul>
 
 			</div>
@@ -60,10 +61,10 @@
 
 				<div class="todayAttendance">
 
-					<ul class="today-commute-schedule">
+					<ul class="today-commute-schedule" >
 						<li class="subfont">오늘의 출퇴근 스케줄</li>
-						<li><span>출근 시간 : </span><span th:text="${todaySchedule.scheduledStart}">09:00</span></li>
-						<li><span>퇴근 시간 : </span><span th:text="${todaySchedule.scheduledEnd}">18:00</span></li>
+						<li><span>출근 시간 : </span><span th:if="${#authorization.expression('isAuthenticated()')}" th:text="${todaySchedule.scheduledStart}">09:00</span></li>
+						<li><span>퇴근 시간 : </span><span th:if="${#authorization.expression('isAuthenticated()')}"  th:text="${todaySchedule.scheduledEnd}">18:00</span></li>
 					</ul>
 
 

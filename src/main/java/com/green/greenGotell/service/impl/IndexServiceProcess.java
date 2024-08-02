@@ -39,12 +39,14 @@ public class IndexServiceProcess implements IndexService {
    //프로필,출퇴근 스케줄 조회
 	@Override
 	public void list(CustomUserDetails userDetails, org.springframework.ui.Model model) {
-	
-		EmployeesEntity employee = employeesEntityRepository.findById(userDetails.getId()).orElseThrow();
 		
-		model.addAttribute("ProfilePhoto",employeePhotoEntityRepository.findByEmployeeId(userDetails.getId()).orElseThrow().toProfileImageDTO() );
-		model.addAttribute("todaySchedule", employeeScheduleEntityRepository.findByEmployee(employee).orElseThrow().toEmployeeScheduleListDTO());
-	
+		if(userDetails!=null) {
+			EmployeesEntity employee = employeesEntityRepository.findById(userDetails.getId()).orElseThrow();
+			model.addAttribute("todaySchedule", employeeScheduleEntityRepository.findByEmployee(employee).orElseThrow().toEmployeeScheduleListDTO());
+			model.addAttribute("ProfilePhoto",employeePhotoEntityRepository.findByEmployeeId(userDetails.getId()).orElseThrow().toProfileImageDTO() );
+		}
+
+		
 		
 	}
 

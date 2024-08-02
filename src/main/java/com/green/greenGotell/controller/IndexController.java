@@ -2,6 +2,7 @@ package com.green.greenGotell.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +31,7 @@ public class IndexController {
 	private final NoticeService noticeService;
 	private final ItemService itemService;
 	
-	
+	  @PreAuthorize("isAuthenticated()")
 	  @GetMapping("/") public String getMethodName(@AuthenticationPrincipal
 	  CustomUserDetails userDetails,Model model) {
 	  
